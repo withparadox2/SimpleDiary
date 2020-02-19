@@ -23,7 +23,8 @@ class UserController extends BaseController {
             this.sendSuccess(res, 'Login successfully', {
                 user: {
                     userName: user.userName,
-                    email: user.email
+                    email: user.email,
+                    userId: user._id
                 }
             })
         } catch (e) {
@@ -38,7 +39,7 @@ class UserController extends BaseController {
     }
 
     // TODO Check whether email is valid
-    // TODO Also add process of sending code to verify the email 
+    // TODO Also add process of sending code to verify the email
     // TODO Use md5 to encrypt password
     async register(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {

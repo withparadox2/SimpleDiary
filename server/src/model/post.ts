@@ -3,13 +3,15 @@ import mongoose from 'mongoose'
 const postSchema = new mongoose.Schema({
     title: String,
     content: String,
-    createTime: { type: Date, default: Date.now }
+    createTime: { type: Date, default: Date.now },
+    userId: String
 })
 
 interface IPost extends mongoose.Document {
     title: string,
     content: string,
-    createTime: Date
+    createTime: Date,
+    userId: string
 }
 
 const PostModel = mongoose.model<IPost>('Post', postSchema)

@@ -10,9 +10,15 @@ class PostController extends BaseController {
         this.update = this.update.bind(this)
         this.remove = this.remove.bind(this)
     }
+
     async getAll(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
-            const posts = await PostModel.find()
+            const { userId } = req.query
+            this.checkUser(req, userId)
+
+            const posts = await PostModel.find({
+                userId
+            })
             this.sendSuccess(res, {
                 posts
             })
@@ -23,14 +29,17 @@ class PostController extends BaseController {
 
     async insert(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
-            const { title, content } = req.body
+            const { title, content, userId } = req.body
+            this.checkUser(req, userId)
+
             if (!title || !content) {
                 return this.sendFail(res, `Title or content can not be empty`)
             }
 
             let post = new PostModel({
                 content,
-                title
+                title,
+                userId
             })
 
             post = await post.save()
@@ -45,7 +54,9 @@ class PostController extends BaseController {
 
     async update(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
-            const { postId, title, content } = req.body
+            const { postId, title, content, userId } = req.body
+            this.checkUser(req, userId)
+
             const post = await PostModel.findOne({
                 _id: postId
             })
@@ -69,7 +80,9 @@ class PostController extends BaseController {
 
     async remove(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
-            const { postId } = req.body
+            const { postId, userId } = req.body
+            this.checkUser(req, userId)
+
             await PostModel.remove({
                 _id: postId
             })

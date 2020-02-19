@@ -19,6 +19,12 @@ class BaseController {
             message
         })
     }
+
+    checkUser(req : express.Request, userId : string) {
+        if (req.session.user_id != userId) {
+            throw new Error('Have no right to operate.')
+        }
+    }
 }
 
 export default BaseController
