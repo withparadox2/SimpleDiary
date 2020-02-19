@@ -37,7 +37,9 @@ class UserController extends BaseController {
         this.sendSuccess(res, 'Logout successfully.')
     }
 
-    // @TODO check whether email is valid
+    // TODO Check whether email is valid
+    // TODO Also add process of sending code to verify the email 
+    // TODO Use md5 to encrypt password
     async register(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
             const { email, password, userName } = req.body
@@ -51,7 +53,6 @@ class UserController extends BaseController {
                 return this.sendFail(res, `Email ${email} has been registered`)
             }
 
-            // @TODO Use md5 to encrypt password
             const newUser = new UserModel({
                 email, password, userName
             })
@@ -59,7 +60,7 @@ class UserController extends BaseController {
             await newUser.save()
             this.sendSuccess(res, 'Register successfully')
         } catch (e) {
-            // @TODO take care of logs
+            // TODO Take care of logs
             console.log(e)
             this.sendFail(res, `Register unsuccessfully for: ` + e)
         }
