@@ -4,6 +4,7 @@ class BaseController {
     sendSuccess(res: express.Response, message?: string | object, result?: object) {
         if (typeof message == 'object') {
             result = message
+            message = ''
         }
         res.send({
             success: true,
