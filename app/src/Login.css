@@ -1,0 +1,13 @@
+.login-page, .register-page {
+    text-align: center;
+    padding-top: 10%;
+    font-size: 14px;
+}
+
+.form-desc {
+    margin-right: 10px;
+}
+
+.confirm {
+    margin-top: 20px;
+}

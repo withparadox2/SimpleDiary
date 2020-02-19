@@ -9,7 +9,7 @@ setupMongodb({
 })
 
 const app = express()
-const PORT = 3000
+const PORT = 8080
 
 setupExpress(app)
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`))
