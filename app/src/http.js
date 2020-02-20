@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = "http://localhost:8080"
+const BASE_URL = 'http://localhost:8080'
 
 function addParams(url, params) {
   if (!params || Object.keys(params).length === 0) {
@@ -16,42 +16,30 @@ function addParams(url, params) {
   return `${url}${url.indexOf('?') >= 0 ? '&' : '?'}${appendStr}`
 }
 
-function post({
-  path,
-  params,
-  content,
-  headers
-}) {
+function post({ path, params, content, headers }) {
   return axios({
     method: 'post',
     url: buildUrl({ path, params }),
     data: content,
     headers
-  }).catch((error) => {
+  }).catch(error => {
     return Promise.reject({
       error,
       message: parseError(error)
     })
-  });
+  })
 }
 
-function get({
-  path,
-  params
-}) {
-  return axios.get(buildUrl({ path, params }))
-    .catch((error) => {
-      return Promise.reject({
-        error,
-        message: parseError(error)
-      })
+function get({ path, params }) {
+  return axios.get(buildUrl({ path, params })).catch(error => {
+    return Promise.reject({
+      error,
+      message: parseError(error)
     })
+  })
 }
 
-function buildUrl({
-  path,
-  params
-}) {
+function buildUrl({ path, params }) {
   return addParams(BASE_URL + path, params)
 }
 
@@ -68,8 +56,4 @@ function parseError(err) {
   return 'unknown error'
 }
 
-export {
-  post,
-  get,
-  buildUrl
-}
+export { post, get, buildUrl }
