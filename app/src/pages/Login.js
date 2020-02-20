@@ -1,6 +1,6 @@
 import React from 'react'
 import './Login.css'
-import { login } from './api'
+import { login } from '../api'
 
 class Login extends React.Component {
   constructor() {

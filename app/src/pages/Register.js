@@ -1,6 +1,6 @@
 import React from 'react'
 import './Login.css'
-import { register } from './api'
+import { register } from '../api'
 
 class Login extends React.Component {
   constructor() {
@@ -22,6 +22,9 @@ class Login extends React.Component {
         const data = result.data
         if (data && data.success) {
           alert('注册成功')
+          this.props.history.replace({
+            pathname: '/'
+          })
         } else {
           alert((data && data.message) || '注册失败')
         }
