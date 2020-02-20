@@ -6,9 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
-    "build": "tsc",
-    "prestart": "npm run build",
-    "start": "node ."
+    "build": "tsc -w",
+    "start": "node-dev ."
   },
   "author": "",
   "license": "ISC",
