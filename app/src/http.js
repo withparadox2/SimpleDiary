@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = 'http://localhost:8080'
+const BASE_URL = 'http://192.168.178.31:8080'
 
 function addParams(url, params) {
   if (!params || Object.keys(params).length === 0) {
