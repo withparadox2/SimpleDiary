@@ -2,6 +2,7 @@
 node_modules
 dist
 sessions
+server.log
 
 # local env files
 .env.local
