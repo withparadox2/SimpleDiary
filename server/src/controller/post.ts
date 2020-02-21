@@ -1,6 +1,7 @@
 import express from 'express'
 import BaseController from './base'
 import PostModel from '../model/post'
+import logger from '../util/logger'
 
 class PostController extends BaseController {
   constructor() {
@@ -27,6 +28,7 @@ class PostController extends BaseController {
         posts
       })
     } catch (e) {
+      logger.error(e)
       this.sendFail(res, 'Error: ' + e)
     }
   }
@@ -56,6 +58,7 @@ class PostController extends BaseController {
         post
       })
     } catch (e) {
+      logger.error(e)
       this.sendFail(res, 'Error: ' + e)
     }
   }
@@ -86,6 +89,7 @@ class PostController extends BaseController {
 
       await post.save()
     } catch (e) {
+      logger.error(e)
       this.sendFail(res, 'Error: ' + e)
     }
   }
@@ -104,6 +108,7 @@ class PostController extends BaseController {
       })
       this.sendSuccess(res, 'Remove post successfully.')
     } catch (e) {
+      logger.error(e)
       this.sendFail(res, 'Error: ' + e)
     }
   }

@@ -1,6 +1,7 @@
 import express from 'express'
 import UserModel from '../model/user'
 import BaseController from './base'
+import logger from '../util/logger'
 
 class UserController extends BaseController {
   constructor() {
@@ -32,7 +33,7 @@ class UserController extends BaseController {
         }
       })
     } catch (e) {
-      console.log(e)
+      logger.error(e)
       this.sendFail(res, `Login unsuccessfully for: ` + e)
     }
   }
@@ -78,8 +79,7 @@ class UserController extends BaseController {
       await newUser.save()
       this.sendSuccess(res, 'Register successfully')
     } catch (e) {
-      // TODO Take care of logs
-      console.log(e)
+      logger.error(e)
       this.sendFail(res, `Register unsuccessfully for: ` + e)
     }
   }
