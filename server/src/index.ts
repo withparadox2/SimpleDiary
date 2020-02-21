@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import registerRouter from './route'
 import bodyParser from 'body-parser'
 import session from 'express-session'
+import logger from './util/logger'
 
 setupMongodb({
   DB_URL: 'mongodb://localhost:27017/test'
@@ -24,11 +25,26 @@ function setupExpress(app: express.Express) {
     res.setHeader('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS')
     res.setHeader('Access-Control-Allow-Credentials', 'true') // 可以带cookies
     res.setHeader('X-Powered-By', '3.2.1')
+
+    logger.info(req.method + ' ' + req.originalUrl)
+
     if (req.method == 'OPTIONS') {
       return res.sendStatus(200)
     }
     next()
   })
+
+  app.use(
+    (
+      err: Error,
+      req: express.Request,
+      res: express.Response,
+      next: express.NextFunction
+    ) => {
+      logger.error(err)
+      res.status(500).send('Something broke!')
+    }
+  )
 
   app.get('/', (req, res) => res.send('Hello World!'))
 
