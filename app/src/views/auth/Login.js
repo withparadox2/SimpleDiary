@@ -1,6 +1,6 @@
 import React from 'react'
 import './Login.css'
-import { login } from './api'
+import { login } from '../../api/api'
 
 class Login extends React.Component {
   constructor() {
@@ -19,7 +19,8 @@ class Login extends React.Component {
     login(this.state.email, this.state.password).then(result => {
       const data = result.data
       if (data && data.success) {
-        alert('Login successfully')
+        alert('Login successfully');
+        
       } else {
         alert((data && data.message) || 'Login failed')
       }
