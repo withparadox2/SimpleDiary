@@ -2,6 +2,7 @@ import React from 'react'
 import './Login.css'
 import {login} from '../../api/api';
 import {Grid, Typography, Button} from '@material-ui/core';
+import { toastr } from "react-redux-toastr";
 
 class Login extends React.Component {
     constructor() {
@@ -19,15 +20,16 @@ class Login extends React.Component {
     }
     confirm() {
         if (!this.state.email || !this.state.password) {
-            return alert('输入不能为空')
+            return toastr.error("Error","Please enter all the fields")
         }
         login(this.state.email, this.state.password).then(result => {
             const data = result.data
             if (data && data.success) {
-                alert('Login successfully');
+                toastr.success("Sucess","Login successfully!");
 
             } else {
-                alert((data && data.message) || 'Login failed')
+                toastr.error("Error","Login failed")
+                //alert((data && data.message) || 'Login failed')
             }
         })
     }
@@ -55,12 +57,12 @@ class Login extends React.Component {
                     style={{
                     display: 'table'
                 }}>
-                    <Typography variant="h6">
+                    <Typography variant="h5">
                         SIGN IN
                     </Typography>
                     <hr className="divider" align="center"/>
                     <div>
-                        <Typography variant='body1' className="form-desc" align="left">Email</Typography>
+                        <Typography variant='body2' className="form-desc" align="left">Email*</Typography>
                         <div>
                             <input
                                 placeholder="Enter your email"
@@ -70,7 +72,7 @@ class Login extends React.Component {
                                 required></input>
                         </div>
 
-                        <Typography variant='body1' className="form-desc" align="left">Password</Typography>
+                        <Typography variant='body2' className="form-desc" align="left">Password*</Typography>
                         <input
                             placeholder="Enter your password"
                             value={this.password}

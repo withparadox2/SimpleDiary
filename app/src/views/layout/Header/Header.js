@@ -11,7 +11,7 @@ class Header extends Component {
                 <div className='links'>
                     <Link to='/write' className="link-a"><CreateIcon/></Link>
                     <Link to='/' className="link-a">My Diary</Link>
-                    <Link href=" " className="link-a">Sign Out</Link>
+                    <Link to='/login' className="link-a">Sign Out</Link>
                 </div>
             </div>
         )

@@ -2,6 +2,7 @@ import React from 'react'
 import './Login.css'
 import {register} from '../../api/api';
 import {Grid, Typography, Button} from '@material-ui/core';
+import { toastr } from "react-redux-toastr";
 
 class Login extends React.Component {
     constructor() {
@@ -20,18 +21,19 @@ class Login extends React.Component {
     }
     confirm() {
         if (!this.state.email || !this.state.password || !this.state.userName) {
-            return alert('输入不能为空')
+            return toastr.error("Error","Please enter all the fields")
         }
         register(this.state.email, this.state.password, this.state.userName).then(result => {
             const data = result.data
             if (data && data.success) {
-                alert('注册成功');
+                toastr.success("Sucess","Registed successfully!");
                 this
                     .props
                     .history
                     .goBack();
             } else {
-                alert((data && data.message) || '注册失败')
+                toastr.error("Error","Registed failed")
+                // alert((data && data.message) || '注册失败')
             }
         })
     }
@@ -53,13 +55,13 @@ class Login extends React.Component {
                     style={{
                     display: 'table'
                 }}>
-                    <Typography variant="h6">
+                    <Typography variant="h5">
                         SIGN UP
                     </Typography>
                     <hr className="divider" align="center"/>
 
                     <div>
-                        <Typography variant='body1' className="form-desc" align="left">Email*</Typography>
+                        <Typography variant='body2' className="form-desc" align="left">Email*</Typography>
                         <div>
                             <input
                                 placeholder="Enter you email"
@@ -68,7 +70,7 @@ class Login extends React.Component {
                                 className="input"
                                 required></input>
                         </div>
-                        <Typography variant='body1' className="form-desc" align="left">Username*</Typography>
+                        <Typography variant='body2' className="form-desc" align="left">Username*</Typography>
                         <div>
                             <input
                                 placeholder="Enter your username"
@@ -77,7 +79,7 @@ class Login extends React.Component {
                                 className="input"
                                 required></input>
                         </div>
-                        <Typography variant='body1' className="form-desc" align="left">Password</Typography>
+                        <Typography variant='body2' className="form-desc" align="left">Password</Typography>
                         <div>
                             <input
                                 placeholder="Enter your password"
