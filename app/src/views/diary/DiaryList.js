@@ -1,10 +1,11 @@
 import React from 'react';
-import Card from '../component/Card/Card'
+
+
 
 export default function DiaryList() {
     return (
         <div>
-            <Card />
+           <h1>List</h1>
         </div>
     )
 }

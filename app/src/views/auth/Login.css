@@ -1,14 +1,63 @@
 .login-page,
 .register-page {
     text-align: center;
-    padding-top: 10%;
+    padding: 4vw;
     font-size: 14px;
+    background-color: hsla(184, 94%, 80%, 0.882);
+    margin-top: 5%;
+}
+
+.divider {
+    width: 15%;
+    border: 0;
+    border-bottom: 3px solid rgb(0, 95, 95);
 }
 
 .form-desc {
-    margin-right: 10px;
+    padding: 2%;
+    color: rgb(250, 86, 41);
 }
 
 .confirm {
     margin-top: 20px;
+}
+
+.input {
+    height: 50px;
+    font-size: 16px;
+    border: 1.2px solid #04b4b4;
+    outline-style: none;
+    display: table-cell;
+    width: 100%;
+    padding-left: 15px;
+    box-sizing: border-box;
+}
+
+.input:hover {
+    border: 1.2px solid rgb(250, 86, 41);
+}
+
+.MuiButton-contained.btnStyle {
+    background-color: hsl(13, 88%, 60%);
+    color: white;
+}
+
+.MuiButton-contained.btnStyle:hover {
+    background-color: #ff987b;
+    color: #ffffff;
+}
+
+.btn-group {
+    margin: 2em auto 1em;
+}
+
+.rlink {
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: rgb(0, 95, 95);
+}
+
+.rlink:hover {
+    color: rgb(220, 50, 90);
 }
