@@ -1,0 +1,31 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.nav-wrap {
+    width: 100%;
+    height: 80px;
+    box-sizing: border-box;
+    background: #302e2e;
+}
+
+.nav-wrap .links {
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-wrap .links .link-a {
+    font-size: 18px;
+    color: rgb(226, 226, 226);
+    transition: 0.3s ease;
+    text-decoration: none;
+    margin-right: 10px;
+    letter-spacing: 1px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.nav-wrap .links .link-a:hover {
+    color: hsl(182, 96%, 81%);
+}

@@ -1,0 +1,14 @@
+body {
+    background: url('http://backgroundlabs.com/wp-content/uploads/2013/04/black-mosaic-tiles.png');
+}
+
+.edit {
+    border: 30px solid hsla(0, 0%, 100%, .5);
+    background: white;
+    background-clip: padding-box;
+    /* styling */
+    max-width: 20em;
+    padding: 2em;
+    margin: 2em auto 0;
+    font: 100%/1.5 sans-serif;
+}

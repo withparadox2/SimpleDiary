@@ -8,6 +8,7 @@ export default class Card extends React.Component {
             <div id="root">
                 <div className="container">
                     <div className="card-grid">
+                    <CardContainer/> 
                         <CardContainer>
                             <CardContent
                                 avatarImage="https://gravatar.com/avatar/f382340e55fa164f1e3aef2739919078?s=80&d=https://codepen.io/assets/avatars/user-avatar-80x80-bdcd44a3bfb9a5fd01eb8b86f9e033fa1a9897c3a15b33adfc2649a002dab1b6.png"
