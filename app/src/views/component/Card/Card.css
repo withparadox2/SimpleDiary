@@ -61,15 +61,6 @@
 /* 
    * Demo Stuff
    */
-
-body {
-    min-height: 100vh;
-    background-color: #FFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .button--full {
     padding: 17px;
     width: 100%;
