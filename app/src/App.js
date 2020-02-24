@@ -6,7 +6,8 @@ import Layout from './views/layout/index';
 import Write from './views/write/Write';
 import DiaryList from './views/diary/DiaryList'
 
-const App = () => (
+const App = (props) => (
+    <div>
     <HashRouter>
         <Layout>
             <Switch>
@@ -17,6 +18,9 @@ const App = () => (
             </Switch>
         </Layout>
     </HashRouter>
+    {props.children}
+    </div>
+    
 )
 
 export default App

@@ -35,6 +35,9 @@ class Login extends React.Component {
                 toastr.error("Error","Registed failed")
                 // alert((data && data.message) || '注册失败')
             }
+        }).catch(e => {
+            toastr.error("Error","Registed failed");
+            console.log(e);
         })
     }
     handleTextChange(key, event) {

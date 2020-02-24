@@ -9,8 +9,10 @@ import store from './store'
 
 ReactDOM.render(
     <Provider store={store}>
-    <App></App>
+    <App>
     <ReduxToastr
         position="bottom-right"
         transitionIn="fadeIn"
-        transitionOut="fadeOut"/></Provider>, document.getElementById('root'))
+        transitionOut="fadeOut"/>
+    </App>
+    </Provider>, document.getElementById('root'))

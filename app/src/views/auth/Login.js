@@ -31,6 +31,10 @@ class Login extends React.Component {
                 toastr.error("Error","Login failed")
                 //alert((data && data.message) || 'Login failed')
             }
+        }).catch(e => {
+            toastr.error("Error","Login failed")
+            console.log(e);
+
         })
     }
     onTextChange(key, event) {

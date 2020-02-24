@@ -12,3 +12,7 @@ body {
     margin: 2em auto 0;
     font: 100%/1.5 sans-serif;
 }
+
+.MuiFormControl-marginNormal {
+    margin: 0 auto 0 2em !important;
+}
