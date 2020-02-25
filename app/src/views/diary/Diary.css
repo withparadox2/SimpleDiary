@@ -1,0 +1,54 @@
+.content {
+    background-color: hsl(7, 100%, 80%);
+}
+
+.dcontent {
+    margin-top: 60px;
+    min-height: 90vh;
+    border: 1px solid white;
+    border-radius: 60px 0 0 0 !important;
+    padding: 5%;
+    z-index: -1;
+}
+
+.sticky {
+    background-color: turquoise;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right: 60px;
+}
+
+.triangle1 {
+    position: absolute;
+    right: 100px;
+    top: 160px;
+    width: 0px;
+    height: 0px;
+    border-top: 20px solid turquoise;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid turquoise;
+    border-right: 20px solid transparent;
+}
+
+.triangle2 {
+    position: absolute;
+    right: 60px;
+    top: 160px;
+    width: 0px;
+    height: 0px;
+    border-top: 20px solid turquoise;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid turquoise;
+    border-left: 20px solid transparent;
+}
+
+.sideImage {
+    width: 24vw;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 1%;
+    background-color: rgba(255, 255, 255, 0.24);
+    border-radius: 0 50px 0 0;
+}
