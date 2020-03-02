@@ -1,5 +1,7 @@
 This a simple diary
 
+## Setup Frontend
+
 ## Setup Server
 
 First of all, download and install mongodb in your machine, and start it.
